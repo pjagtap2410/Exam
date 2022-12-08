@@ -1,0 +1,47 @@
+<!-- <h1>this is navbar </h1>-->
+<!-- To navigate to that particular page-->
+<mat-toolbar color="primary">
+    <a 
+    
+    routerLink="/"
+    mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu_book</mat-icon>
+    </a>
+    <span>Examportal</span>
+    <span class="example-spacer"></span>
+    <a 
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/login'"
+    mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
+      Login
+    </a>
+    <a 
+    *ngIf="!isLoggedIn"
+    style="margin-right:60px"
+    [routerLink]="'/signup'"
+    mat-icon-button  class="example-icon favorite-icon ml20" aria-label="Example icon-button with heart icon">
+        Register 
+    </a>
+
+   
+    <a 
+    (click) ="logout()"
+    *ngIf="isLoggedIn"
+   
+    mat-icon-button  class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
+        Logout
+    </a>
+
+    <button 
+    *ngIf="isLoggedIn && user"
+    style="margin-right:50px"
+    class="example-icon favorite-icon ml20"
+    mat-icon-button
+    aria-label="Example icon-button with heart icon">
+        {{user.username}}
+  </button>
+
+
+      
+  </mat-toolbar>
+   <!--Instead of routerLink="/login" we can use [routerLink]="'/signup'"-->
